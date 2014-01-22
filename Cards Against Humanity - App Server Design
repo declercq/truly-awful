@@ -1,0 +1,24 @@
+Cards Against Humanity - App Server Design
+
+Main class - Game
+----
+
+Setup
+
+Create Game
+	POST /game/
+Join Game (create player entry in game)
+	POST /game/<game#>
+#Send Game invite (tell server to send invite)
+#	PUT /game/<game#>
+#	(updating game, so use PUT (?))
+#add later
+#Configure Game (creator adds/removes expansions, etc)
+#	PATCH /game/<game#>
+#add later
+Start Game
+	PATCH /game/<game#>
+	updating some game state, so use PATCH
+
+
+
