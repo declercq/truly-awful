@@ -1,0 +1,43 @@
+Java Play Web Framework - setting up database and web/rest server on google app engine
+
+downloaded play-2.2.1
+already have openjdk-6-jdk installed
+added play directory to path (not in .bashrc)
+
+play new test-play-gae 
+	(creates the dir, fails if it already exists)
+
+	made it a git repo (checked in initial play setup)
+
+play idea 
+	setup for import into intellij
+
+good and simple rest on play example - http://stackoverflow.com/questions/4379485/restful-on-play-framework
+
+----
+
+GAE module only works for play1.x
+Going to try Heroku instead
+    http://www.playframework.com/documentation/2.1.0/ProductionHeroku
+
+    heroku cmd line tool had already been installed 
+    
+$ heroku create
+Creating arcane-retreat-7197... done, stack is cedar
+http://arcane-retreat-7197.herokuapp.com/ | git@heroku.com:arcane-retreat-7197.git
+Git remote heroku added
+
+----
+
+plan 3 - use AWS Elastic Beanstalk 
+	should be simpler than Heroku (built on top of AWS)
+	basically provides web server + distributed database access (exactly what we need)
+
+
+
+
+----------------------------
+
+Play Framework Notes
+
+	play run - run application/server locally (accessible via 
