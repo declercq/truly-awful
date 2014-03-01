@@ -1,59 +1,59 @@
 Java Play Web Framework - setting up database and web/rest server on google app engine
 
-downloaded play-2.2.1
-already have openjdk-6-jdk installed
-added play directory to path (not in .bashrc)
+local configuration
+	downloaded play-2.2.1
+		added play directory to path (not in .bashrc)
+	already have openjdk-6-jdk installed
+	heroku cmd line tool had already been installed 
+		$ heroku create
+		Creating arcane-retreat-7197... done, stack is cedar
+		http://arcane-retreat-7197.herokuapp.com/ | git@heroku.com:arcane-retreat-7197.git
+		Git remote heroku added
 
-play new test-play-gae 
-	(creates the dir, fails if it already exists)
+Notes:
+	good and simple rest on play example - http://stackoverflow.com/questions/4379485/restful-on-play-framework
 
-	made it a git repo (checked in initial play setup)
-
-play idea 
-	setup for import into intellij
-
-good and simple rest on play example - http://stackoverflow.com/questions/4379485/restful-on-play-framework
-
-----
-
-GAE module only works for play1.x
-Going to try Heroku instead
-    http://www.playframework.com/documentation/2.1.0/ProductionHeroku
-
-    heroku cmd line tool had already been installed 
-    
-$ heroku create
-Creating arcane-retreat-7197... done, stack is cedar
-http://arcane-retreat-7197.herokuapp.com/ | git@heroku.com:arcane-retreat-7197.git
-Git remote heroku added
+	producing a war file (needed for AWS EB)
+		requires a plugin and some configuration
+		http://blog.jelastic.com/2013/07/02/play-2-web-application-deployment-tutorial/
 
 ----
 
-plan 3 - use AWS Elastic Beanstalk 
-	should be simpler than Heroku (built on top of AWS)
-	basically provides web server + distributed database access (exactly what we need)
+Hosting options
+	Google App Engine (GAE)
+		platform as a service
+		autoscales, etc
+		GAE module only works for play1.x, no support for play 2x
 
-default java app server: 
-	Elastic Beanstalk will create a 
-		load-balancing
-		autoscaling 
-		Tomcat 7 
-		Java 7 
-		64bit Amazon Linux 2013.09
+	Heroku 
+		built on top of AWS
+		http://www.playframework.com/documentation/2.1.0/ProductionHeroku
+		may be useful, but a bit more complex than necessary at the moment
 
+	AWS Elastic Beanstalk 
+		should be simpler than Heroku (built on top of AWS)
+		basically provides web server + distributed database access (exactly what we need)
+		auto scales unlike base AWS
+
+		default java app server: 
+			Elastic Beanstalk will create a 
+				load-balancing
+				autoscaling 
+				Tomcat 7 
+				Java 7 
+				64bit Amazon Linux 2013.09
+
+		(signed up for aws) - activated multi-factor auth (google authenticator)
 
 ----------------------------
 
-Play Framework Notes
-
-	play run - run application/server locally (accessible via http://localhost:9000/)
-
-producing a war file (needed for AWS EB)
-	requires a plugin and some configuration
-	http://blog.jelastic.com/2013/07/02/play-2-web-application-deployment-tutorial/
-
-
-
-(signed up for aws)
-	activated multi-factor auth (google authenticator)
+Play commands
+	play new test-play-gae 
+		creates new project dir, fails if it already exists
+	play run
+		run application/server locally (accessible via http://localhost:9000/)
+	play idea 
+		setup for import into intellij
+	play war
+		generate war file for upload to hosting service (AWS)
 
