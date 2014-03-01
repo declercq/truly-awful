@@ -33,11 +33,27 @@ plan 3 - use AWS Elastic Beanstalk
 	should be simpler than Heroku (built on top of AWS)
 	basically provides web server + distributed database access (exactly what we need)
 
-
+default java app server: 
+	Elastic Beanstalk will create a 
+		load-balancing
+		autoscaling 
+		Tomcat 7 
+		Java 7 
+		64bit Amazon Linux 2013.09
 
 
 ----------------------------
 
 Play Framework Notes
 
-	play run - run application/server locally (accessible via 
+	play run - run application/server locally (accessible via http://localhost:9000/)
+
+producing a war file (needed for AWS EB)
+	requires a plugin and some configuration
+	http://blog.jelastic.com/2013/07/02/play-2-web-application-deployment-tutorial/
+
+
+
+(signed up for aws)
+	activated multi-factor auth (google authenticator)
+
