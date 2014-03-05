@@ -1,11 +1,12 @@
-name := "test-play-gae"
+name := "Generic-Card-Game"
 
 version := "1.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
-  cache
+  cache,
+  "mysql" % "mysql-connector-java" % "5.1.29"
 )     
 
 play.Project.playJavaSettings
